@@ -75,11 +75,11 @@ python3 ./main.py --help
 
 ### Execução concorrente de clientes (4/10)
 - O esqueleto está fornecido em `client.c`;
-- A lógica de funcionamento do cliente **deve** ser implementada neste arquivo.
-- O cliente deve executar corretamente o seguinte fluxo:
-    - O cliente deve esperar corretamente ser atendido.
-    - O cliente deve pensar no seu pedido e realizá-lo ao atendente da equipe.
-    - Após pedir, o cliente deve esperar o prato ficar pronto.
+- A lógica de funcionamento de um cliente **deve** ser implementada neste arquivo.
+- Um cliente deve executar corretamente o seguinte fluxo:
+    - Deve esperar corretamente ser atendido.
+    - Deve pensar no seu pedido e realizá-lo ao atendente da equipe.
+    - Após pedir, deve esperar o prato ficar pronto.
     - Após um lugar na mesa ficar vazio, o cliente deve tomar um assento na Grande Mesa para comer.
     - O cliente deve finalizar corretamente após comer.
 - Erros de sincronização e condições de corrida serão descontados.
