@@ -1,15 +1,15 @@
 # imports do Python
 from random import randint
 
-AVAILABLE_TICKETS = 1000 # Modifique se você deseja mais ou menos tickets
-
-
+"""
+    Não troque o nome das variáveis compartilhadas, a assinatura e o nomes das funções.
+"""
 class Totem:
 
-    def __init__(self):
+    def __init__(self, number_of_clients):
         super().__init__()
         self.already_sampled = list()
-        self.maximum_ticket_number = AVAILABLE_TICKETS
+        self.maximum_ticket_number = number_of_clients * 5
         self.call = list()
         # Insira o que achar necessario no construtor da classe.
 

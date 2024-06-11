@@ -1,6 +1,10 @@
 # imports do Python
 from threading import Thread
 
+
+"""
+    Não troque o nome das variáveis compartilhadas, a assinatura e o nomes das funções.
+"""
 class Crew(Thread):
     
     """ Inicia o membro da equipe com um id (use se necessario)."""

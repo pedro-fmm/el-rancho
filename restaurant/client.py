@@ -4,6 +4,9 @@ from time import sleep
 
 # imports do projeto
 
+"""
+    Não troque o nome das variáveis compartilhadas, a assinatura e o nomes das funções.
+"""
 class Client(Thread):
     
     """ Inicializa o cliente."""

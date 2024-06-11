@@ -8,6 +8,7 @@ from restaurant.client import Client
 from restaurant.crew import Crew
 from restaurant.chef import Chef
 
+from restaurant.totem import Totem
 # Importe o que achar necessario aqui
 # import my_module
 
@@ -16,6 +17,7 @@ def definitions(argv, threads):
     Esse espaco e reservado para voce definir variaveis globais que serao utilizadas por todas as threads.
     Lembre-se de criar as variaveis globais no arquivo restaurant/shared.py
     """
+    totem = Totem(argv.clients)
     pass
 
 def close_all(argv, threads):
