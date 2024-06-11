@@ -32,11 +32,11 @@ if __name__ == "__main__":
 
     args = argparse.ArgumentParser()
     
-    # Argumentos para o programa (main.py --clients 10 --crew 5 --seats 10)
+    # Argumentos para o programa (main.py --clients 10 --crew 5 --seats 5)
 
     args.add_argument("--clients", type=int, default=10, help="Numero de clientes que irao ao restaurante mexicano")
     args.add_argument("--crew", type=int, default=5, help="Numero de funcionarios do restaurante mexicano")
-    args.add_argument("--seats", type=int, default=10, help="Quantidade de assentos na grande mesa do restaurante mexicano")
+    args.add_argument("--seats", type=int, default=5, help="Quantidade de assentos na grande mesa do restaurante mexicano")
 
     # Parseando os argumentos
     argv = args.parse_args()
