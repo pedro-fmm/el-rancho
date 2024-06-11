@@ -26,7 +26,7 @@ O seu grupo foi contratado para desenvolver o fluxo de um restaurante de culiná
 - **Crew.py**: A equipe é formada por pessoas que atendem os clientes que chegam no restaurante. Um membro da equipe aguarda uma senha ser retirada do totem para poder atender um cliente. Ele atende prioritariamente a senha de menor valor. (exemplo: imagine que foram retiradas sequencialmente as seguintes senhas: 19,8,0,1,10. Os clientes serão atendidos na seguinte ordem: 0,1,8,10,19).
 
 
-- **Client.py**: Ao chegar no restaurante, um cliente adquire uma senha que é gerada aleatoriamente. Ele aguarda ser chamado por um dos membros da equipe, pensa no que vai pedir por um determinado tempo, e depois faz o seu pedido. Após realizar o seu pedido, **o cliente aguarda o chef fazer seu prato e um lugar na mesa ficar vazio**. Só assim ele poderá sentar na mesa, comer e ir embora.  
+- **Client.py**: Ao chegar no restaurante, um cliente adquire uma senha que é gerada aleatoriamente. Ele aguarda ser chamado por um dos membros da equipe, pensa no que vai pedir por um determinado tempo, e depois faz o seu pedido. Após realizar o seu pedido, **o cliente aguarda primeiramente o chef fazer seu prato e aguarda um lugar na mesa ficar vazio**. Só assim ele poderá sentar na mesa, comer e ir embora.  
 
 
 - **Chef.py**: O cozinheiro do restaurante é **único**, isso significa que não há outros cozinheiros no restaurante. Ele recebe pedidos da equipe do restaurante por uma fila e os prepara um por um.
@@ -41,7 +41,7 @@ O seu grupo foi contratado para desenvolver o fluxo de um restaurante de culiná
 
 Um **cliente A** (`client.py`) chega no restaurante, retira uma senha de atendimento (`totem.py`). Ele pode ter sorte de ter tirado a menor senha naquele instante, mas um **cliente B** que tenha chegado depois pode ter tirado uma senha de menor valor e ser atendido antes dele. 
 
-Assim que o **cliente A** retira uma senha, o totem avisa a equipe (`crew.py`) que um cliente chegou. E um dos membros da equipe chama o **cliente A**.
+Assim que o **cliente A** retira uma senha, o totem avisa a equipe (`crew.py`) que um cliente chegou. E um dos membros da equipe chama o **cliente A** quando for sua vez de ser atendido.
 
 O **cliente A**, ao ser chamado pelo atendente, pensa por um certo período de tempo no que vai pedir (observe que não estamos preocupados com o que ele vai pedir, apenas com o tempo que ele vai levar para pedir). Assim que ele termina de pensar, o atendente coloca o pedido do **cliente A** na fila de pedidos que está sendo observada pelo cozinheiro do restaurante. 
 
@@ -74,13 +74,14 @@ python3 main.py --help
 ## Critérios de Avaliação
 
 ### Execução concorrente de clientes (4/10)
-- O esqueleto está fornecido em `client.c`;
+- O esqueleto está fornecido em `client.py`;
 - A lógica de funcionamento de um cliente **deve** ser implementada neste arquivo.
 - Um cliente deve executar corretamente o seguinte fluxo:
-    - Deve esperar corretamente ser atendido.
-    - Deve pensar no seu pedido e realizá-lo ao atendente da equipe.
-    - Após pedir, deve esperar o prato ficar pronto.
-    - Após um lugar na mesa ficar vazio, o cliente deve tomar um assento na Grande Mesa para comer.
+    - Retirar uma senha;  
+    - Deve esperar corretamente ser atendido;
+    - Deve pensar no seu pedido e realizá-lo ao atendente da equipe;
+    - Após pedir, deve esperar o prato ficar pronto;
+    - Após um lugar na mesa ficar vazio, o cliente deve tomar um assento na Grande Mesa para comer;
     - O cliente deve finalizar corretamente após comer.
 - Erros de sincronização e condições de corrida serão descontados.
 
@@ -88,20 +89,20 @@ python3 main.py --help
 - O esqueleto está fornecido em `crew.py`.
 - A lógica de funcionamento dos membros da equipe **deve** ser implementada neste arquivo.
 - Um membro da equipe deve executar corretamente o seguinte fluxo:
-    - Se estiver ocioso e houverem clientes que não foram atendidos, esperar o totem emitir um aviso de que uma senha foi retirada.
-    - Chamar uma senha emitida e atender ao pedido do cliente.
-    - Enviar o pedido do cliente ao cozinheiro através de uma fila.
-    - Encerrar corretamente após todos os clientes serem atendidos.
+    - Se estiver ocioso e houverem clientes que não foram atendidos, esperar o totem emitir um aviso de que uma senha foi retirada;
+    - Chamar uma senha emitida e atender ao pedido do cliente;
+    - Enviar o pedido do cliente ao cozinheiro através de uma fila;
+    - Encerrar corretamente após todos os clientes serem atendidos;
 - Erros de sincronização e condição de corrida serão descontados.
 
 ### Execução concorrente do cozinheiro (3/10)
 - O esqueleto está fornecido em `chef.py`
 - A lógica de funcionamento do cozinheiro **deve** ser implementada neste arquivo.
 - O cozinheiro deve executar corretamente o seguinte fluxo:
-    - Deve aguardar chamados da equipe com pedidos de clientes.
-    - Deve cozinhar todos os pedidos, retirados de uma fila.
-    - Deve avisar que um pedido está pronto.
-    - Depois que tiver cozinhado os pedidos de todos os clientes, deve encerrar sua execução.
+    - Deve aguardar chamados da equipe com pedidos de clientes;
+    - Deve cozinhar todos os pedidos, retirados de uma fila;
+    - Deve avisar que um pedido está pronto;
+    - Depois que tiver cozinhado os pedidos de todos os clientes, deve encerrar sua execução;
 - Erros de sincronização e condição de corrida serão descontados.
 
 ## Orientações Finais
