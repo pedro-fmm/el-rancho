@@ -31,7 +31,7 @@ O seu grupo foi contratado para desenvolver o fluxo de um restaurante de culiná
 
 - **Chef.py**: O cozinheiro do restaurante é **único**, isso significa que não há outros cozinheiros no restaurante. Ele recebe pedidos da equipe do restaurante por uma fila e os prepara um por um.
 
-- **Table.py**: O restaurante dispõe de apenas **uma mesa**, que é compartilhada entre os clientes. Os clientes "disputam" os assentos da mesa. Uma regra de inicialização do programa é de que há mais clientes para serem atendidos que lugares disponíveis na mesa. Lembre-se que o cliente só pode retirar o seu pedido quando houver um lugar vazio na mesa.
+- **Table.py**: O restaurante dispõe de apenas **uma mesa**, que é compartilhada entre os clientes. Os clientes "disputam" os assentos da mesa. **Uma regra de inicialização do programa é de que há mais clientes para serem atendidos que lugares disponíveis na mesa**. Lembre-se que o cliente só pode retirar o seu pedido quando houver um lugar vazio na mesa.
 
 - **Shared.py**: Arquivo onde você deve armazenar suas variáveis compartilhadas entre as threads.
 
