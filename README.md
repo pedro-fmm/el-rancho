@@ -73,7 +73,7 @@ python3 main.py --help
 
 ## Critérios de Avaliação
 
-### Execução concorrente de clientes (4/10)
+### [c1] - Execução concorrente de clientes (4/10)
 - O esqueleto está fornecido em `client.py`;
 - A lógica de funcionamento de um cliente **deve** ser implementada neste arquivo.
 - Um cliente deve executar corretamente o seguinte fluxo:
@@ -85,7 +85,7 @@ python3 main.py --help
     - O cliente deve finalizar corretamente após comer.
 - Erros de sincronização e condições de corrida serão descontados.
 
-### Execução concorrente da equipe (3/10)
+### [c2] - Execução concorrente da equipe (3/10)
 - O esqueleto está fornecido em `crew.py`.
 - A lógica de funcionamento dos membros da equipe **deve** ser implementada neste arquivo.
 - Um membro da equipe deve executar corretamente o seguinte fluxo:
@@ -95,7 +95,7 @@ python3 main.py --help
     - Encerrar corretamente após todos os clientes serem atendidos;
 - Erros de sincronização e condição de corrida serão descontados.
 
-### Execução concorrente do cozinheiro (3/10)
+### [c3] -Execução concorrente do cozinheiro (3/10)
 - O esqueleto está fornecido em `chef.py`
 - A lógica de funcionamento do cozinheiro **deve** ser implementada neste arquivo.
 - O cozinheiro deve executar corretamente o seguinte fluxo:
@@ -104,6 +104,19 @@ python3 main.py --help
     - Deve avisar que um pedido está pronto;
     - Depois que tiver cozinhado os pedidos de todos os clientes, deve encerrar sua execução;
 - Erros de sincronização e condição de corrida serão descontados.
+
+### Nota final
+
+- Sendo *A* a nota de apresentação individual do aluno.
+- Sendo *c1*, *c2* e *c3* os critérios de avaliação do código
+
+A nota final será calculada da seguinte forma:
+
+```bash
+N = [A*(c1*0.4 + c2*0.3 + c3*0.3)]/10
+```
+
+**Atenção**: Como indicado pela fórmula mostrada acima, **a nota atribuída à solução adotada será ponderada pelo desempenho do aluno (individualmente) durante a apresentação do trabalho**. Por exemplo, se o professor atribuir a nota 10 para a solução adotada pelo grupo mas o aluno receber nota 5 pela apresentação - devido ao desconhecimento dos conteúdos teóricos, práticos e/ou da solução do trabalho - a sua nota final do trabalho será 5. A ausência no dia da apresentação ou recusa de realização da apresentação do trabalho implicará em nota zero na apresentação, fazendo com que a nota atribuída ao aluno também seja zero.
 
 ## Orientações Finais
 1. É **obrigatório** o uso do código esqueleto fornecido. Não é permitido uso de PoolExecutor;
