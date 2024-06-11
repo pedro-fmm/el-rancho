@@ -1,4 +1,7 @@
 
+"""
+    Não troque o nome das variáveis compartilhadas, a assinatura e o nomes das funções.
+"""
 class Table:
 
     """ Inicia a mesa com um número de lugares """

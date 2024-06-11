@@ -3,6 +3,9 @@ from threading import Thread
 from time import sleep
 from random import randint
 
+"""
+    Não troque o nome das variáveis compartilhadas, a assinatura e o nomes das funções.
+"""
 class Chef(Thread):
     
     def __init__(self):
