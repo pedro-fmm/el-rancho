@@ -61,14 +61,14 @@ Clone este repositório. Para executar a simulação, execute o seguinte comando
 
 
 ```bash
-python3 ./main.py --clients 10 --crew 2 --seats 5
+python3 main.py --clients 10 --crew 2 --seats 5
 ```
 
 Para imprimir ajuda:
 
 
 ```bash
-python3 ./main.py --help
+python3 main.py --help
 ```
 
 ## Critérios de Avaliação
@@ -110,6 +110,9 @@ python3 ./main.py --help
 3.  O código deverá ser **obrigatoriamente** bem comentado. Códigos mal comentados sofrerão deduções na nota final;
 4.  **Explorem ao máximo a concorrência**. Quando mal utilizadas, estruturas de sincronização deixam de ser um remédio e se tornam um veneno para o desempenho final da aplicação. Usem essas estruturas com responsabilidade;
 5. Há seções sinalizadas em que **não é possível a alteração do código**. Isso serve para que o código funcione corretamente para todos;
-6. O uso de **espera ocupada** em qualquer parte do código receberá desconto.
-7. Soluções baseadas em **supermutexes** (única sincronização global) serão descontadas.
-8. Há prints padronizados espalhados em todo o código. O uso deles é obrigatório.
+6. O uso de **espera ocupada** em qualquer parte do código receberá desconto;
+7. Soluções baseadas em **supermutexes** (única sincronização global) serão descontadas;
+8. Há prints padronizados espalhados em todo o código. O uso deles é **obrigatório**.
+
+    
+Bom trabalho!
