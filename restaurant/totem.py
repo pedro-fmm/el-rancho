@@ -1,5 +1,6 @@
 # imports do Python
 from random import randint
+from threading import Thread, Lock
 
 """
     Não troque o nome das variáveis compartilhadas, a assinatura e o nomes das funções.
@@ -11,6 +12,7 @@ class Totem:
         self.already_sampled = list()
         self.maximum_ticket_number = number_of_clients * 5
         self.call = list()
+        self.call_lock = Lock()
         # Insira o que achar necessario no construtor da classe.
 
     """ 
@@ -36,5 +38,9 @@ class Totem:
 
     """ Insira sua sincronização."""
     def call_crew(self):
+        self.call_lock.acquire()
+        ticket = min(self.call)
+        self.call.pop(ticket)
         print("[CALLING] - O totem chamou a equipe para atender o pedido da senha {}.".format(self.already_sampled[-1]))
-
+        self.call_lock.release()
+        #crew->call_client
