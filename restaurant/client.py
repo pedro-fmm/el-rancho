@@ -1,5 +1,9 @@
 # imports do Python
+<<<<<<< HEAD
 from threading import Thread, Semaphore
+=======
+from threading import Thread, Lock
+>>>>>>> 34b973768eb1351a7ddf08b6171c6bd324cb088b
 from time import sleep
 from random import randint
 
@@ -16,15 +20,24 @@ from .shared import (
 class Client(Thread):
     
     """ Inicializa o cliente."""
-    def __init__(self, i):
+    def __init__(self, i, totem, table):
         self._id = i
+<<<<<<< HEAD
         self.ticket = None
         self.semaforo_wait_crew = Semaphore(0)
         self.semaforo_wait_chef = Semaphore(0)
+=======
+        self.totem = totem
+        self.ticket_lock = Lock()
+        self.table = table
+>>>>>>> 34b973768eb1351a7ddf08b6171c6bd324cb088b
         super().__init__()
 
     """ Pega o ticket do totem."""
     def get_my_ticket(self):
+        self.ticket_lock.acquire()
+        self.totem.get_ticket()
+        self.ticket_lock.release()
         print("[TICKET] - O cliente {} pegou o ticket.".format(self._id))
         self.ticket = get_totem().get_ticket() 
 
@@ -58,15 +71,23 @@ class Client(Thread):
     """
     def seat_and_eat(self):
         print("[WAIT SEAT] - O cliente {} esta aguardando um lugar ficar livre".format(self._id))
+<<<<<<< HEAD
         table = get_table()
         table.seat(self)
+=======
+        self.table.seat()
+>>>>>>> 34b973768eb1351a7ddf08b6171c6bd324cb088b
         print("[SEAT] - O cliente {} encontrou um lugar livre e sentou".format(self._id))
         sleep(randint(1,5))
 
     """ O cliente deixa o restaurante."""
     def leave(self):
+<<<<<<< HEAD
         table = get_table()
         table.leave(self)
+=======
+        self.table.leave()
+>>>>>>> 34b973768eb1351a7ddf08b6171c6bd324cb088b
         print("[LEAVE] - O cliente {} saiu do restaurante".format(self._id))
     
     """ Thread do cliente """

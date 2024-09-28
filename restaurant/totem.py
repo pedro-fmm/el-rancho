@@ -1,7 +1,11 @@
 # imports do Python
 from random import randint
+<<<<<<< HEAD
 from threading import Semaphore, Lock
 from .shared import get_queue_totem_call_crew
+=======
+from threading import Thread, Lock
+>>>>>>> 34b973768eb1351a7ddf08b6171c6bd324cb088b
 
 """
     Não troque o nome das variáveis compartilhadas, a assinatura e o nomes das funções.
@@ -13,10 +17,15 @@ class Totem:
         self.already_sampled = list()
         self.maximum_ticket_number = number_of_clients * 5
         self.call = list()
+<<<<<<< HEAD
         self.semaforo = Semaphore(0) # semaforo para o crew esperar um cliente pedir um ticket
         self.call_lock = Lock()
         self.remaining_clients = number_of_clients # usado para controlar o numero de clientes atendidos, evita que crew fique esperando apos todos clientes serem chamados
         self.remaining_clients_lock = Lock() # protege a variavel anterior
+=======
+        self.call_lock = Lock()
+        # Insira o que achar necessario no construtor da classe.
+>>>>>>> 34b973768eb1351a7ddf08b6171c6bd324cb088b
 
     """ 
         A função get_ticket não pode ser alterada. 
@@ -46,6 +55,7 @@ class Totem:
         self.remaining_clients -= 1
 
     """ Insira sua sincronização."""
+<<<<<<< HEAD
     def call_crew(self): 
         self.call_lock.acquire()
         ticket = min(self.call)
@@ -56,3 +66,12 @@ class Totem:
         # print("[CALLING] - O totem chamou a equipe para atender o pedido da senha {}.".format(self.already_sampled[-1]))
         print("[CALLING] - O totem chamou a equipe para atender o pedido da senha {}".format(self.already_sampled[-1]))
 
+=======
+    def call_crew(self):
+        self.call_lock.acquire()
+        ticket = min(self.call)
+        self.call.pop(ticket)
+        print("[CALLING] - O totem chamou a equipe para atender o pedido da senha {}.".format(self.already_sampled[-1]))
+        self.call_lock.release()
+        #crew->call_client
+>>>>>>> 34b973768eb1351a7ddf08b6171c6bd324cb088b
